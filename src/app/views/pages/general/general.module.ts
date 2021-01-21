@@ -21,28 +21,16 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'blank-page',
+        redirectTo: 'profile',
         pathMatch: 'full'
-      },
-      {
-        path: 'blank-page',
-        component: BlankComponent
       },
       {
         path: 'faq',
         component: FaqComponent
       },
       {
-        path: 'invoice',
-        component: InvoiceComponent
-      },
-      {
         path: 'profile',
         component: ProfileComponent
-      },
-      {
-        path: 'pricing',
-        component: PricingComponent
       },
       {
         path: 'timeline',

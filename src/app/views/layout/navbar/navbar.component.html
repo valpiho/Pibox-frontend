@@ -20,34 +20,11 @@
         </a>
         <div ngbDropdownMenu aria-labelledby="languageDropdown">
           <a ngbDropdownItem class="py-2"><i class="flag-icon flag-icon-us" title="us" id="us"></i> <span class="ml-1"> English </span></a>
-          <a ngbDropdownItem class="py-2"><i class="flag-icon flag-icon-fr" title="fr" id="fr"></i> <span class="ml-1"> French </span></a>
-          <a ngbDropdownItem class="py-2"><i class="flag-icon flag-icon-de" title="de" id="de"></i> <span class="ml-1"> German </span></a>
-          <a ngbDropdownItem class="py-2"><i class="flag-icon flag-icon-pt" title="pt" id="pt"></i> <span class="ml-1"> Portuguese </span></a>
-          <a ngbDropdownItem class="py-2"><i class="flag-icon flag-icon-es" title="es" id="es"></i> <span class="ml-1"> Spanish </span></a>
+          <a ngbDropdownItem class="py-2"><i class="flag-icon flag-icon-ee" title="ee" id="ee"></i> <span class="ml-1"> Estonian </span></a>
+          <a ngbDropdownItem class="py-2"><i class="flag-icon flag-icon-ru" title="ru" id="ru"></i> <span class="ml-1"> Russian </span></a>
         </div>
       </li>
-      <li class="nav-item nav-apps" ngbDropdown>
-        <a class="nav-link" ngbDropdownToggle id="appsDropdown">
-          <i class="link-icon feather icon-grid"></i>
-        </a>
-        <div ngbDropdownMenu aria-labelledby="appsDropdown">
-          <div class="dropdown-header d-flex align-items-center justify-content-between">
-            <p class="mb-0 font-weight-medium">Web Apps</p>
-            <a href="" (click)="false" class="text-muted">Edit</a>
-          </div>
-          <div class="dropdown-body">
-            <div class="d-flex align-items-center apps">
-              <a routerLink="/apps/chat"><i class="feather icon-message-square"></i><p>Chat</p></a>
-              <a routerLink="/apps/calendar"><i class="feather icon-calendar"></i><p>Calendar</p></a>
-              <a routerLink="/apps/email/inbox"><i class="feather icon-mail"></i><p>Email</p></a>
-              <a routerLink="/general/profile"><i class="feather icon-instagram"></i><p>Profile</p></a>
-            </div>
-          </div>
-          <div class="dropdown-footer d-flex align-items-center justify-content-center">
-            <a href="" (click)="false">View all</a>
-          </div>
-        </div>
-      </li>
+      <!--
       <li class="nav-item nav-messages" ngbDropdown>
         <a class="nav-link" ngbDropdownToggle id="messageDropdown">
           <i class="link-icon feather icon-mail"></i>
@@ -66,7 +43,7 @@
                 <div class="d-flex justify-content-between align-items-center">
                   <p>Leonardo Payne</p>
                   <p class="sub-text text-muted">2 min ago</p>
-                </div>	
+                </div>
                 <p class="sub-text text-muted">Project status</p>
               </div>
             </a>
@@ -78,7 +55,7 @@
                 <div class="d-flex justify-content-between align-items-center">
                   <p>Carl Henson</p>
                   <p class="sub-text text-muted">30 min ago</p>
-                </div>	
+                </div>
                 <p class="sub-text text-muted">Client meeting</p>
               </div>
             </a>
@@ -88,9 +65,9 @@
               </div>
               <div class="content">
                 <div class="d-flex justify-content-between align-items-center">
-                  <p>Jensen Combs</p>												
+                  <p>Jensen Combs</p>
                   <p class="sub-text text-muted">1 hrs ago</p>
-                </div>	
+                </div>
                 <p class="sub-text text-muted">Project updates</p>
               </div>
             </a>
@@ -124,6 +101,8 @@
           </div>
         </div>
       </li>
+
+      <!--
       <li class="nav-item nav-notifications" ngbDropdown>
         <a class="nav-link" ngbDropdownToggle id="notificationDropdown">
           <i class="link-icon feather icon-bell"></i>
@@ -188,6 +167,7 @@
           </div>
         </div>
       </li>
+      -->
       <li class="nav-item nav-profile" ngbDropdown>
         <a class="nav-link" ngbDropdownToggle id="profileDropdown">
           <img src="https://via.placeholder.com/30x30" alt="profile">
@@ -214,12 +194,6 @@
                 <a href="" (click)="false" class="nav-link">
                   <i class="feather icon-edit"></i>
                   <span>Edit Profile</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="" (click)="false" class="nav-link">
-                  <i class="feather icon-repeat"></i>
-                  <span>Switch User</span>
                 </a>
               </li>
               <li class="nav-item">
