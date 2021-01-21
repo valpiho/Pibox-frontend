@@ -1,24 +1,22 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { BaseComponent } from './views/layout/base/base.component';
 import { AuthGuard } from './core/guard/auth.guard';
 import { ErrorPageComponent } from './views/pages/error-page/error-page.component';
+import {LoginComponent} from "./views/pages/auth/login/login.component";
+import {RegisterComponent} from "./views/pages/auth/register/register.component";
 
 
 const routes: Routes = [
-  { path:'auth', loadChildren: () => import('./views/pages/auth/auth.module').then(m => m.AuthModule) },
+  {path: 'auth/login', component: LoginComponent},
+  {path: 'auth/register', component: RegisterComponent},
+  {
+    path: 'general',
+    canActivate: [AuthGuard],
+    loadChildren: () => import('./views/pages/general/general.module').then(m => m.GeneralModule)
+  },
   {
     path: '',
-    component: BaseComponent,
-    canActivate: [AuthGuard],
-    children: [
-      {
-        path: 'general',
-        loadChildren: () => import('./views/pages/general/general.module').then(m => m.GeneralModule)
-      },
-      { path: '', redirectTo: 'general/profile', pathMatch: 'full' },
-      // { path: '**', redirectTo: 'dashboard', pathMatch: 'full' }
-    ]
+    loadChildren: () => import('./views/pages/auth/auth.module').then(m => m.AuthModule)
   },
   {
     path: 'error',
@@ -33,7 +31,7 @@ const routes: Routes = [
     path: 'error/:type',
     component: ErrorPageComponent
   },
-  { path: '**', redirectTo: 'error', pathMatch: 'full' }
+  //{ path: '**', redirectTo: 'error', pathMatch: 'full' }
 ];
 
 @NgModule({
