@@ -11,7 +11,6 @@ export class User {
   public authorities: [];
 
   constructor() {
-    this.id = null;
     this.firstName = '';
     this.lastName = '';
     this.username = '';

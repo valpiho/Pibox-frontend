@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
           const token = response.headers.get(HeaderType.JWT_TOKEN);
           this.authenticationService.saveToken(token);
           this.authenticationService.addUserToLocalCache(response.body);
-          this.router.navigateByUrl('/user/management');
+          this.router.navigateByUrl('');
         },
         (errorResponse: HttpErrorResponse) => {
           errorResponse.error.message;
