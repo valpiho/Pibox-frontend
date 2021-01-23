@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild, ElementRef, Inject, Renderer2 } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { Router } from '@angular/router';
+import {AuthenticationService} from "../../../core/services/auth/authentication.service";
+import {User} from "../../../model/User";
 
 @Component({
   selector: 'app-navbar',
@@ -9,13 +11,17 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
+  public user: User;
+
   constructor(
-    @Inject(DOCUMENT) private document: Document, 
+    @Inject(DOCUMENT) private document: Document,
     private renderer: Renderer2,
-    private router: Router
+    private router: Router,
+    private authenticationService: AuthenticationService
   ) { }
 
   ngOnInit(): void {
+    this.user = this.authenticationService.getUserFromLocalCache();
   }
 
   /**
