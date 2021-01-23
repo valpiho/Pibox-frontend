@@ -8,13 +8,17 @@ import {BaseComponent} from "./views/layout/base/base.component";
 
 
 const routes: Routes = [
-  {path: 'auth/login', component: LoginComponent},
-  {path: 'auth/register', component: RegisterComponent},
+  { path:'auth', loadChildren: () => import('./views/pages/auth/auth.module').then(m => m.AuthModule) },
   {
     path: '',
     component: BaseComponent,
     canActivate: [AuthGuard],
-    loadChildren: () => import('./views/pages/general/general.module').then(m => m.GeneralModule)
+    children: [
+      {
+        path: 'general',
+        loadChildren: () => import('./views/pages/general/general.module').then(m => m.GeneralModule)
+      }
+    ]
   },
   {
     path: 'error',
@@ -29,7 +33,7 @@ const routes: Routes = [
     path: 'error/:type',
     component: ErrorPageComponent
   },
-  //{ path: '**', redirectTo: 'error', pathMatch: 'full' }
+  { path: '**', redirectTo: 'error', pathMatch: 'full' }
 ];
 
 @NgModule({

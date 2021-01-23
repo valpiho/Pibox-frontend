@@ -14,7 +14,6 @@ import { HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {AuthInterceptor} from "./core/interceptor/auth.interceptor";
 import {AuthenticationService} from "./core/services/auth/authentication.service";
-import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -25,7 +24,6 @@ import {FormsModule} from "@angular/forms";
     BrowserModule,
     BrowserAnimationsModule,
     LayoutModule,
-    FormsModule,
     HttpClientModule,
     AppRoutingModule
   ],

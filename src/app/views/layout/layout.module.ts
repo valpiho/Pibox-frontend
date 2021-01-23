@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
 
 import { BaseComponent } from './base/base.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -28,7 +27,6 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   imports: [
     CommonModule,
     RouterModule,
-    FormsModule,
     NgbDropdownModule,
     NgbCollapseModule,
     PerfectScrollbarModule,
