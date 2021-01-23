@@ -11,14 +11,10 @@ const routes: Routes = [
   {path: 'auth/login', component: LoginComponent},
   {path: 'auth/register', component: RegisterComponent},
   {
-    path: 'general',
+    path: '',
     component: BaseComponent,
     canActivate: [AuthGuard],
     loadChildren: () => import('./views/pages/general/general.module').then(m => m.GeneralModule)
-  },
-  {
-    path: '',
-    loadChildren: () => import('./views/pages/auth/auth.module').then(m => m.AuthModule)
   },
   {
     path: 'error',
