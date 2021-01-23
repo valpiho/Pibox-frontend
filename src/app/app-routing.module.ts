@@ -4,6 +4,7 @@ import { AuthGuard } from './core/guard/auth.guard';
 import { ErrorPageComponent } from './views/pages/error-page/error-page.component';
 import {LoginComponent} from "./views/pages/auth/login/login.component";
 import {RegisterComponent} from "./views/pages/auth/register/register.component";
+import {BaseComponent} from "./views/layout/base/base.component";
 
 
 const routes: Routes = [
@@ -11,6 +12,7 @@ const routes: Routes = [
   {path: 'auth/register', component: RegisterComponent},
   {
     path: 'general',
+    component: BaseComponent,
     canActivate: [AuthGuard],
     loadChildren: () => import('./views/pages/general/general.module').then(m => m.GeneralModule)
   },

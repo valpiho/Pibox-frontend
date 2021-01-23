@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.authenticationService.isUserLoggedIn()) {
-      this.router.navigateByUrl('');
+      this.router.navigateByUrl('/general/profile');
     }
   }
 
@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
           const token = response.headers.get(HeaderType.JWT_TOKEN);
           this.authenticationService.saveToken(token);
           this.authenticationService.addUserToLocalCache(response.body);
-          this.router.navigateByUrl('');
+          this.router.navigateByUrl('/general/profile');
         },
         (errorResponse: HttpErrorResponse) => {
           errorResponse.error.message;
