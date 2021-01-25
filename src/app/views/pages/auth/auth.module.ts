@@ -5,6 +5,7 @@ import { RegisterComponent } from './register/register.component';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthComponent } from './auth.component';
 import {FormsModule} from "@angular/forms";
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 const routes: Routes = [
   {
@@ -23,13 +24,17 @@ const routes: Routes = [
       {
         path: 'register',
         component: RegisterComponent
+      },
+      {
+        path: 'reset-password',
+        component: ResetPasswordComponent
       }
     ]
   },
 ]
 
 @NgModule({
-  declarations: [LoginComponent, RegisterComponent, AuthComponent],
+  declarations: [LoginComponent, RegisterComponent, AuthComponent, ResetPasswordComponent],
   imports: [
     CommonModule,
     FormsModule,

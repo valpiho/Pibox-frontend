@@ -31,7 +31,7 @@
                        name="password" required ngModel #passwordInput="ngModel">
               </div>
 
-              <div class="mt-3" >
+              <div class="mt-3 d-flex justify-content-between" >
                 <button *ngIf="!showLoading" type="submit" class="btn btn-primary mr-2 mb-2 mb-md-0" [disabled]="loginForm.invalid">
                   Login
                 </button>
@@ -39,8 +39,8 @@
                   <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                   Loading...
                 </button>
+                <a routerLink="/auth/reset-password" class="d-block mt-3 text-muted">Forgot Password?</a>
               </div>
-
               <a routerLink="/auth/register" class="d-block mt-3 text-muted">Not a user? Sign up</a>
             </form>
           </div>

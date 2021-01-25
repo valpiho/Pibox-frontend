@@ -2,8 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './core/guard/auth.guard';
 import { ErrorPageComponent } from './views/pages/error-page/error-page.component';
-import {LoginComponent} from "./views/pages/auth/login/login.component";
-import {RegisterComponent} from "./views/pages/auth/register/register.component";
 import {BaseComponent} from "./views/layout/base/base.component";
 
 
