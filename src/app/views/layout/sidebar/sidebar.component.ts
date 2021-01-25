@@ -41,13 +41,6 @@ export class SidebarComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.menuItems = MENU;
-
-    /**
-     * Sidebar-folded on desktop (min-width:992px and max-width: 1199px)
-     */
-    const desktopMedium = window.matchMedia('(min-width:992px) and (max-width: 1199px)');
-    desktopMedium.addListener(this.iconSidebar);
-    this.iconSidebar(desktopMedium);
   }
 
   ngAfterViewInit() {
@@ -75,7 +68,7 @@ export class SidebarComponent implements OnInit, AfterViewInit {
   /**
    * Open sidebar when hover (in folded folded state)
    */
-  operSidebarFolded() {
+  openSidebarFolded() {
     if (this.document.body.classList.contains('sidebar-folded')){
       this.document.body.classList.add("open-sidebar-folded");
     }
@@ -87,17 +80,6 @@ export class SidebarComponent implements OnInit, AfterViewInit {
   closeSidebarFolded() {
     if (this.document.body.classList.contains('sidebar-folded')){
       this.document.body.classList.remove("open-sidebar-folded");
-    }
-  }
-
-  /**
-   * Sidebar-folded on desktop (min-width:992px and max-width: 1199px)
-   */
-  iconSidebar(e) {
-    if (e.matches) {
-      this.document.body.classList.add('sidebar-folded');
-    } else {
-      this.document.body.classList.remove('sidebar-folded');
     }
   }
 

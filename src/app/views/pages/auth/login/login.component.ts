@@ -13,6 +13,8 @@ import {Subscription} from "rxjs";
 })
 export class LoginComponent implements OnInit {
 
+  public showLoading: boolean;
+
   private subscriptions: Subscription[] = [];
 
   constructor(private router: Router,
@@ -25,16 +27,19 @@ export class LoginComponent implements OnInit {
   }
 
   public onLogin(user: User): void {
+    this.showLoading = true;
     this.subscriptions.push(
       this.authenticationService.login(user).subscribe(
         (response: HttpResponse<User>) => {
           const token = response.headers.get(HeaderType.JWT_TOKEN);
           this.authenticationService.saveToken(token);
           this.authenticationService.addUserToLocalCache(response.body);
+          this.showLoading = false;
           this.router.navigateByUrl('/general/profile');
         },
         (errorResponse: HttpErrorResponse) => {
           errorResponse.error.message;
+          this.showLoading = false;
         }
       )
     );

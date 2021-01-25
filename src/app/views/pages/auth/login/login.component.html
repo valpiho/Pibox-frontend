@@ -9,26 +9,36 @@
         </div>
         <div class="col-md-8 pl-md-0">
           <div class="auth-form-wrapper px-4 py-5">
-            <a routerLink="." class="noble-ui-logo d-block mb-2">Pibox</a>
+            <a class="noble-ui-logo d-block d-md-none mb-2">Pibox</a>
             <h5 class="text-muted font-weight-normal mb-4">Welcome back! Log in to your account.</h5>
             <form #loginForm="ngForm" class="forms-sample" (ngSubmit)="onLogin(loginForm.value)">
 
               <div class="form-group">
-                <label for="usernameInput">Username </label>
-                <span style="color: red" *ngIf="usernameInput.invalid && usernameInput.touched"> Please enter your username</span>
-                <input type="email" class="form-control" id="usernameInput" placeholder="Email"
+                <div class="d-flex justify-content-between">
+                  <label for="usernameInput">Username</label>
+                  <span style="color: red" *ngIf="usernameInput.invalid && usernameInput.touched">Please enter your username</span>
+                </div>
+                <input type="text" class="form-control" id="usernameInput" placeholder="Username"
                        name="username" required ngModel #usernameInput="ngModel">
               </div>
 
               <div class="form-group">
-                <label for="passwordInput">Password </label>
-                <span style="color: red" *ngIf="passwordInput.invalid && passwordInput.touched"> Please enter your password</span>
+                <div class="d-flex justify-content-between">
+                  <label for="passwordInput">Password</label>
+                  <span style="color: red" *ngIf="passwordInput.invalid && passwordInput.touched">Please enter your password</span>
+                </div>
                 <input type="password" class="form-control" id="passwordInput" placeholder="Password"
                        name="password" required ngModel #passwordInput="ngModel">
               </div>
 
-              <div class="mt-3">
-                <button type="submit" class="btn btn-primary mr-2 mb-2 mb-md-0">Login</button>
+              <div class="mt-3" >
+                <button *ngIf="!showLoading" type="submit" class="btn btn-primary mr-2 mb-2 mb-md-0" [disabled]="loginForm.invalid">
+                  Login
+                </button>
+                <button *ngIf="showLoading" class="btn btn-primary mr-2 mb-2 mb-md-0" type="button" disabled>
+                  <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                  Loading...
+                </button>
               </div>
 
               <a routerLink="/auth/register" class="d-block mt-3 text-muted">Not a user? Sign up</a>

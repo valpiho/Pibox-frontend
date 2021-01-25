@@ -12,6 +12,8 @@ import {User} from "../../../../model/User";
 })
 export class RegisterComponent implements OnInit {
 
+  public showLoading: boolean;
+
   private subscriptions: Subscription[] = [];
 
   constructor(private router: Router,
@@ -24,11 +26,18 @@ export class RegisterComponent implements OnInit {
   }
 
   public onRegister(user: User): void {
+    this.showLoading = true;
     this.subscriptions.push(
       this.authenticationService.register(user).subscribe(
-        (response: User) => {}
+        (response: User) => {
+          this.showLoading = false;
+          this.router.navigateByUrl('');
+        },
+        (errorResponse: HttpErrorResponse) => {
+          errorResponse.error.message;
+          this.showLoading = false;
+        }
       ));
-    this.router.navigateByUrl('');
   }
 
   ngOnDestroy(): void {
