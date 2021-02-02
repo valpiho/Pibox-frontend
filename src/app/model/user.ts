@@ -4,6 +4,7 @@ export class User {
   public lastName: string;
   public username: string;
   public email: string;
+  public profileImgUrl: string;
   public joinDate: Date;
   public lastLoginDate: Date;
   public active: boolean;
@@ -15,6 +16,7 @@ export class User {
     this.lastName = '';
     this.username = '';
     this.email = '';
+    this.profileImgUrl = '';
     this.joinDate = null;
     this.lastLoginDate = null;
     this.active = false;
