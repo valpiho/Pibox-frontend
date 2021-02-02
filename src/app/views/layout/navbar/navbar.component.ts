@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef, Inject, Renderer2 } from '@an
 import { DOCUMENT } from '@angular/common';
 import { Router } from '@angular/router';
 import {AuthenticationService} from "../../../core/services/auth/authentication.service";
-import {User} from "../../../model/User";
+import {User} from "../../../model/user";
 
 @Component({
   selector: 'app-navbar',

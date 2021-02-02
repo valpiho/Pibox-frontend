@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {AuthenticationService} from "../../../../core/services/auth/authentication.service";
 import {HttpErrorResponse, HttpResponse} from "@angular/common/http";
-import {User} from "../../../../model/User";
+import {User} from "../../../../model/user";
 import {HeaderType} from "../../../../core/enumeration/header-type.enum";
 import {Subscription} from "rxjs";
 

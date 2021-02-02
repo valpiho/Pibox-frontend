@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import {Subscription} from "rxjs";
 import {AuthenticationService} from "../../../../core/services/auth/authentication.service";
 import {HttpErrorResponse} from "@angular/common/http";
-import {User} from "../../../../model/User";
+import {User} from "../../../../model/user";
 
 @Component({
   selector: 'app-register',
