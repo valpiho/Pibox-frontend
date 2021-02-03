@@ -4,6 +4,7 @@
   font-size: $btn-font-size;
   line-height: 1;
   padding: .5rem 1rem;
+  margin: 0 2px;
   i {
     font-size: 1rem;
   }
@@ -25,7 +26,7 @@
   &.btn-link {
     color: theme-color(primary);
   }
-  
+
 
   /* Buttons with only icons */
   &.btn-icon {
