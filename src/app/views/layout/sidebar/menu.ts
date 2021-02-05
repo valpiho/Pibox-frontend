@@ -61,7 +61,7 @@ export const MENU: MenuItem[] = [
   {
     label: 'Find group',
     icon: 'search',
-    link: '',
+    link: '/group/find',
     badge: {
       variant: 'primary',
       text: 'Soon',
@@ -70,7 +70,7 @@ export const MENU: MenuItem[] = [
   {
     label: 'Create group',
     icon: 'plus',
-    link: '',
+    link: '/group/create',
     badge: {
       variant: 'primary',
       text: 'Soon',

@@ -1,0 +1,46 @@
+<div class="row w-100 mx-0 auth-page">
+  <div class="col-md-8 col-xl-6 mx-auto">
+    <div class="card">
+      <div class="row">
+        <div class="col-md-8 pl-md-0">
+          <div class="auth-form-wrapper px-4 py-5">
+            <h5 class="text-muted font-weight-normal mb-4">Create new group!</h5>
+            <form #groupCreateForm="ngForm" class="forms-sample" (ngSubmit)="onCreate(groupCreateForm.value)">
+
+              <div class="form-group">
+                <div class="d-flex justify-content-between">
+                  <label for="titleInput">Title</label>
+                  <span style="color: red" *ngIf="titleInput.invalid && titleInput.touched">Please enter group title</span>
+                </div>
+                <input type="text" class="form-control" id="titleInput" placeholder="Title"
+                       name="title" required ngModel #titleInput="ngModel">
+              </div>
+
+              <div class="form-group">
+                <label for="abbreviationInput">Abbreviation</label>
+                <input type="text" class="form-control" id="abbreviationInput" placeholder="Abbreviation"
+                       name="abbreviation">
+              </div>
+
+              <div class="form-group">
+                <label for="descriptionInput">Description</label>
+                <textarea class="form-control" id="descriptionInput" rows="8"
+                       name="description"></textarea>
+              </div>
+
+              <div class="mt-3 d-flex justify-content-between" >
+                <button *ngIf="!showLoading" type="submit" class="btn btn-primary mr-2 mb-2 mb-md-0" [disabled]="groupCreateForm.invalid">
+                  Create
+                </button>
+                <button *ngIf="showLoading" class="btn btn-primary mr-2 mb-2 mb-md-0" type="button" disabled>
+                  <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                  Loading...
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './core/guard/auth.guard';
 import { ErrorPageComponent } from './views/pages/error-page/error-page.component';
 import {BaseComponent} from "./views/layout/base/base.component";
+import {group} from "@angular/animations";
 
 
 const routes: Routes = [
@@ -15,6 +16,10 @@ const routes: Routes = [
       {
         path: 'general',
         loadChildren: () => import('./views/pages/general/general.module').then(m => m.GeneralModule)
+      },
+      {
+        path: 'group',
+        loadChildren: () => import('./views/pages/group/group.module').then(m => m.GroupModule)
       }
     ]
   },
