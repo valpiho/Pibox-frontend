@@ -28,6 +28,14 @@
                        name="description"></textarea>
               </div>
 
+              <div class="form-check form-check-flat form-check-primary">
+                <label for="isPublicInput" class="form-check-label">
+                  <input type="checkbox" class="form-check-input" id="isPublicInput" name="isActive">
+                  <i class="input-frame"></i>
+                  Public group
+                </label>
+              </div>
+
               <div class="mt-3 d-flex justify-content-between" >
                 <button *ngIf="!showLoading" type="submit" class="btn btn-primary mr-2 mb-2 mb-md-0" [disabled]="groupCreateForm.invalid">
                   Create
