@@ -19,18 +19,18 @@
               <div class="form-group">
                 <label for="abbreviationInput">Abbreviation</label>
                 <input type="text" class="form-control" id="abbreviationInput" placeholder="Abbreviation"
-                       name="abbreviation">
+                       name="abbreviation" ngModel>
               </div>
 
               <div class="form-group">
                 <label for="descriptionInput">Description</label>
                 <textarea class="form-control" id="descriptionInput" rows="8"
-                       name="description"></textarea>
+                       name="description" ngModel></textarea>
               </div>
 
               <div class="form-check form-check-flat form-check-primary">
                 <label for="isPublicInput" class="form-check-label">
-                  <input type="checkbox" class="form-check-input" id="isPublicInput" name="isActive">
+                  <input type="checkbox" class="form-check-input" id="isPublicInput" name="isPublic" [ngModel]>
                   <i class="input-frame"></i>
                   Public group
                 </label>
