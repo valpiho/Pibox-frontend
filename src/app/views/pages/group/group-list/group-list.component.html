@@ -1,1 +1,14 @@
-Group list Component
+<div class="card rounded">
+  <div class="card-body">
+    <div class="mt-3">
+      <ul class="list-group list-group-flush">
+        <li *ngFor="let group of groups" class="list-group-item">
+          <div class="d-flex justify-content-between">
+            <p class="text-muted">{{group?.title}}</p>
+            <span class="badge badge-info">{{group?.description}}</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

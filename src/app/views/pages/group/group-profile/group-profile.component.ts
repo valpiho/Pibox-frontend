@@ -16,8 +16,6 @@ export class GroupProfileComponent implements OnInit, OnDestroy {
   private groupId: string;
   private subscriptions: Subscription[] = [];
 
-  public isLoading: boolean;
-
   constructor(private groupService: GroupService,
               private activatedRoute: ActivatedRoute) {
     this.subscriptions.push(
@@ -28,16 +26,13 @@ export class GroupProfileComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.isLoading = true;
     this.subscriptions.push(
       this.groupService.getGroup(this.groupId).subscribe(
         (response: Group) => {
           this.group = response;
-          this.isLoading = false;
         },
         (errorResponse: HttpErrorResponse) => {
           errorResponse.error.message;
-          this.isLoading = false;
         }
       )
     );
