@@ -1,7 +1,7 @@
 import {User} from "./user";
 
 export class Group {
-  public id: number;
+  public groupId: string;
   public title: string;
   public abbreviation: string;
   public description: string;
@@ -16,6 +16,7 @@ export class Group {
   public posts: [];
 
   constructor() {
+    this.groupId = '';
     this.title = '';
     this.abbreviation = '';
     this.description = '';

@@ -14,7 +14,6 @@ import {Subscription} from "rxjs";
 export class LoginComponent implements OnInit {
 
   public showLoading: boolean;
-
   private subscriptions: Subscription[] = [];
 
   constructor(private router: Router,

@@ -3,7 +3,7 @@ import {Group} from "../../../../model/group";
 import {Subscription} from "rxjs";
 import {Router} from "@angular/router";
 import {GroupService} from "../../../../core/services/group.service";
-import {HttpErrorResponse} from "@angular/common/http";
+import {HttpErrorResponse, HttpResponse} from "@angular/common/http";
 import {AuthenticationService} from "../../../../core/services/auth/authentication.service";
 
 @Component({
@@ -30,9 +30,9 @@ export class GroupCreateComponent implements OnInit {
     group.groupOwner = this.authenticationService.getUserFromLocalCache();
     this.subscriptions.push(
       this.groupService.createNewGroup(group).subscribe(
-        (response: Group) => {
+        (response: HttpResponse<Group>) => {
           this.showLoading = false;
-          this.router.navigateByUrl('');
+          this.router.navigateByUrl(`/group/${response.body.groupId}`);
         },
         (errorResponse: HttpErrorResponse) => {
           errorResponse.error.message;
