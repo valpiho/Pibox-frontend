@@ -59,50 +59,18 @@ export const MENU: MenuItem[] = [
     isTitle: true
   },
   {
+    label: 'My groups',
+    icon: 'users',
+    link: '/groups'
+  },
+  {
     label: 'Find group',
     icon: 'search',
-    link: '/group/find',
-    badge: {
-      variant: 'primary',
-      text: 'Soon',
-    }
+    link: '/groups/find',
   },
   {
     label: 'Create group',
     icon: 'plus',
-    link: '/group/create',
-    badge: {
-      variant: 'primary',
-      text: 'Soon',
-    }
-  },
-  {
-    label: 'My groups',
-    isTitle: true
-  },
-  {
-    label: 'Pibox',
-    link: '',
-    badge: {
-      variant: 'info',
-      text: 'Owner',
-    }
-  },
-  {
-    label: 'SK Eola',
-    link: '',
-    badge: {
-      variant: 'info',
-      text: 'Guest',
-    }
-  },
-  {
-    label: 'SDA',
-    link: '',
-    badge: {
-      variant: 'info',
-      text: 'Student',
-    }
-  },
-
+    link: '/groups/create',
+  }
 ];

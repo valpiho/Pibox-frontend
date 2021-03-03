@@ -159,9 +159,7 @@ export class SidebarComponent implements OnInit, AfterViewInit {
     for (let i = 0; i < links.length; i++) {
       // tslint:disable-next-line: no-string-literal
         if (window.location.pathname === links[i]['pathname']) {
-
             menuItemEl = links[i];
-
             break;
         }
     }

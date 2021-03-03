@@ -16,7 +16,7 @@ const routes: Routes = [
         loadChildren: () => import('./views/pages/general/general.module').then(m => m.GeneralModule)
       },
       {
-        path: 'group',
+        path: 'groups',
         loadChildren: () => import('./views/pages/group/group.module').then(m => m.GroupModule)
       }
     ]
