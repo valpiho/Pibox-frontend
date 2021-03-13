@@ -10,6 +10,11 @@ export class User {
   public active: boolean;
   public role: string;
   public authorities: [];
+  public posts = [];
+  public ownGroups = [];
+  public groups = [];
+  public departments = [];
+  public courses = [];
 
   constructor() {
     this.firstName = '';
@@ -22,5 +27,10 @@ export class User {
     this.active = false;
     this.role = '';
     this.authorities = [];
+    this.posts = [];
+    this.ownGroups = [];
+    this.groups = [];
+    this.departments = [];
+    this.courses = [];
   }
 }

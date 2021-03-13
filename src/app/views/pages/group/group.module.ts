@@ -17,12 +17,8 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'list',
+        component: GroupListComponent,
         pathMatch: 'full'
-      },
-      {
-        path: 'list',
-        component: GroupListComponent
       },
       {
         path: 'create',

@@ -14,10 +14,13 @@
             </div>
             <div class="d-none d-md-block">
               <button class="btn btn-primary btn-icon-text">
-                <i data-feather="edit" appFeatherIcon class="btn-icon-prepend"></i> New post
+                <i data-feather="edit-3" appFeatherIcon class="btn-icon-prepend"></i>New post
               </button>
               <button class="btn btn-primary btn-icon-text">
-                <i data-feather="edit" appFeatherIcon class="btn-icon-prepend"></i> Edit group
+                <i data-feather="user-plus" appFeatherIcon class="btn-icon-prepend"></i>Invite user
+              </button>
+              <button class="btn btn-primary btn-icon-text">
+                <i data-feather="edit" appFeatherIcon class="btn-icon-prepend"></i>Edit group
               </button>
             </div>
           </div>
@@ -57,35 +60,12 @@
       <div class="card rounded">
         <div class="card-body">
           <div class="mt-3">
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">
-                <div class="d-flex justify-content-between">
-                  <p class="text-muted">Pibox</p>
-                  <span class="badge badge-info">Owner</span>
-                </div>
-              </li>
-              <li class="list-group-item">
-                <div class="d-flex justify-content-between">
-                  <p class="text-muted">SK Eola</p>
-                  <span class="badge badge-info">Guest</span>
-                </div>
-              </li>
-              <li class="list-group-item">
-                <div class="d-flex justify-content-between">
-                  <p class="text-muted">Software Development Academy</p>
-                  <span class="badge badge-info">Student</span>
-                </div>
-              </li>
-            </ul>
-          </div>
-          <hr>
-          <div class="mt-3">
-            <label class="tx-11 font-weight-bold mb-0 text-uppercase">Joined:</label>
+            <label class="tx-11 font-weight-bold mb-0 text-uppercase">Created:</label>
             <p class="text-muted">{{group?.createdAt | date:'longDate'}}</p>
           </div>
           <div class="mt-3">
             <label class="tx-11 font-weight-bold mb-0 text-uppercase">Email:</label>
-            <p class="text-muted">{{group?.groupOwner.firstName}}</p>
+            <p class="text-muted">{{group?.groupOwner.email}}</p>
           </div>
           <div class="mt-3 d-flex social-links">
             <a href="javascript:;" class="btn d-flex align-items-center justify-content-center border mr-2 btn-icon p-0 github" ngbTooltip="github.com/nobleui">

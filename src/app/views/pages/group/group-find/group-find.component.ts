@@ -3,6 +3,8 @@ import {Group} from "../../../../model/group";
 import {HttpErrorResponse} from "@angular/common/http";
 import {Subscription} from "rxjs";
 import {GroupService} from "../../../../core/services/group.service";
+import {User} from "../../../../model/user";
+import {AuthenticationService} from "../../../../core/services/auth/authentication.service";
 
 @Component({
   selector: 'app-group-find',
@@ -11,12 +13,15 @@ import {GroupService} from "../../../../core/services/group.service";
 })
 export class GroupFindComponent implements OnInit, OnDestroy {
 
+  public user: User;
   public groups: Group[];
   private subscriptions: Subscription[] = [];
 
-  constructor(private groupService: GroupService) { }
+  constructor(private authenticationService: AuthenticationService,
+              private groupService: GroupService) { }
 
   ngOnInit(): void {
+    this.user = this.authenticationService.getUserFromLocalCache();
     this.subscriptions.push(
       this.groupService.getAllActivePublicGroups().subscribe(
         (response: Group[]) => {
@@ -27,6 +32,10 @@ export class GroupFindComponent implements OnInit, OnDestroy {
         }
       )
     )
+  }
+
+  isOwner(id: number) {
+    return this.user.id === id;
   }
 
   ngOnDestroy(): void {

@@ -3,6 +3,7 @@ import {environment} from "../../../environments/environment";
 import {HttpClient, HttpResponse} from "@angular/common/http";
 import {Group} from "../../model/group";
 import {Observable} from "rxjs";
+import {User} from "../../model/user";
 
 @Injectable({
   providedIn: 'root'
@@ -14,14 +15,18 @@ export class GroupService {
   constructor(private http: HttpClient) {}
 
   public createNewGroup(group: Group): Observable<HttpResponse<Group>> {
-    return this.http.post<Group>(`${this.host}/group/create`, group, {observe: "response"})
+    return this.http.post<Group>(`${this.host}/groups/create`, group, {observe: "response"})
   }
 
   public getGroup(groupId: string): Observable<Group> {
-    return this.http.get<Group>(`${this.host}/group/${groupId}`);
+    return this.http.get<Group>(`${this.host}/groups/${groupId}`);
   }
 
   public getAllActivePublicGroups(): Observable<Group[]> {
-    return this.http.get<Group[]>(`${this.host}/group/`)
+    return this.http.get<Group[]>(`${this.host}/groups/`)
+  }
+
+  public getAllUserGroups(user: User): Observable<Group[]> {
+    return this.http.post<Group[]>(`${this.host}/groups/user-groups/`, user)
   }
 }

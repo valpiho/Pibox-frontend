@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Group} from "../../../../model/group";
 import {Subscription} from "rxjs";
 import {Router} from "@angular/router";
@@ -11,7 +11,7 @@ import {AuthenticationService} from "../../../../core/services/auth/authenticati
   templateUrl: './group-create.component.html',
   styleUrls: ['./group-create.component.scss']
 })
-export class GroupCreateComponent implements OnInit {
+export class GroupCreateComponent implements OnInit, OnDestroy {
 
   public showLoading: boolean;
 
@@ -32,7 +32,7 @@ export class GroupCreateComponent implements OnInit {
       this.groupService.createNewGroup(group).subscribe(
         (response: HttpResponse<Group>) => {
           this.showLoading = false;
-          this.router.navigateByUrl(`/group/${response.body.groupId}`);
+          this.router.navigateByUrl(`/groups/${response.body.groupId}`);
         },
         (errorResponse: HttpErrorResponse) => {
           errorResponse.error.message;

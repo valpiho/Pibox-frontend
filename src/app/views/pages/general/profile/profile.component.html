@@ -57,28 +57,17 @@
       <div class="card rounded">
         <div class="card-body">
           <div class="mt-3">
+            <label class="tx-11 font-weight-bold mb-0 text-uppercase">My groups</label>
             <ul class="list-group list-group-flush">
-              <li class="list-group-item">
+              <li class="list-group-item" *ngFor="let group of user.groups">
                 <div class="d-flex justify-content-between">
-                  <p class="text-muted">Pibox</p>
-                  <span class="badge badge-info">Owner</span>
-                </div>
-              </li>
-              <li class="list-group-item">
-                <div class="d-flex justify-content-between">
-                  <p class="text-muted">SK Eola</p>
-                  <span class="badge badge-info">Guest</span>
-                </div>
-              </li>
-              <li class="list-group-item">
-                <div class="d-flex justify-content-between">
-                  <p class="text-muted">Software Development Academy</p>
-                  <span class="badge badge-info">Student</span>
+                  <a [routerLink]="['/groups/', group.groupId]" class="text-muted">
+                    {{group.title}}
+                  </a>
                 </div>
               </li>
             </ul>
           </div>
-          <hr>
           <div class="mt-3">
             <label class="tx-11 font-weight-bold mb-0 text-uppercase">Joined:</label>
             <p class="text-muted">{{user.joinDate | date:'longDate'}}</p>
