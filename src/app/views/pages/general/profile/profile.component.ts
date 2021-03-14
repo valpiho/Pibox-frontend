@@ -14,7 +14,6 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = this.authenticationService.getUserFromLocalCache();
-    console.log(this.user)
   }
 
 }

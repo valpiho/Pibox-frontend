@@ -12,6 +12,7 @@ import {HttpErrorResponse} from "@angular/common/http";
 export class GroupProfileComponent implements OnInit, OnDestroy {
 
   public group: Group;
+
   private groupId: string;
   private subscriptions: Subscription[] = [];
 

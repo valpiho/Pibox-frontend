@@ -10,36 +10,20 @@ import {AuthenticationService} from "../../../../core/services/auth/authenticati
   selector: 'app-group-list',
   templateUrl: './group-list.component.html'
 })
-export class GroupListComponent implements OnInit, OnDestroy{
+export class GroupListComponent implements OnInit{
 
   public user: User;
   public groups: Group[];
-
-  private subscriptions: Subscription[] = [];
 
   constructor(private groupService: GroupService,
               private authenticationService: AuthenticationService) { }
 
   ngOnInit(): void {
     this.user = this.authenticationService.getUserFromLocalCache();
-    this.subscriptions.push(
-      this.groupService.getAllUserGroups(this.user).subscribe(
-        (response: Group[]) => {
-          this.groups = response;
-          console.log(response)
-        },
-        (errorResponse: HttpErrorResponse) => {
-          errorResponse.error.message;
-        }
-      )
-    )
+    this.groups = this.user.groups;
   }
 
-  isOwner(id: number) {
-    return this.user.id === id;
-  }
-
-  ngOnDestroy(): void {
-    this.subscriptions.forEach(sub => sub.unsubscribe());
+  isOwner(userId: string) {
+    return this.user.userId === userId;
   }
 }

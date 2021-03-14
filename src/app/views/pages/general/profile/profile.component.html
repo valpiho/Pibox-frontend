@@ -26,19 +26,19 @@
           <ul class="links d-flex align-items-center mt-3 mt-md-0">
             <li class="header-link-item d-flex align-items-center active">
               <i class="mr-1 icon-md" data-feather="columns" appFeatherIcon></i>
-              <a class="pt-1px d-none d-md-block" routerLink=".">Timeline</a>
+              <a class="pt-1px d-none d-md-block" routerLink=".">Timeline </a>
             </li>
             <li class="header-link-item ml-3 pl-3 border-left d-flex align-items-center">
               <i class="mr-1 icon-md" data-feather="grid" appFeatherIcon></i>
-              <a class="pt-1px d-none d-md-block" routerLink=".">Groups</a>
+              <a class="pt-1px d-none d-md-block" routerLink="../../groups">Groups <span class="text-muted tx-12">{{user.groups.length}}</span></a>
             </li>
             <li class="header-link-item ml-3 pl-3 border-left d-flex align-items-center">
               <i class="mr-1 icon-md" data-feather="list" appFeatherIcon></i>
-              <a class="pt-1px d-none d-md-block" routerLink=".">Courses</a>
+              <a class="pt-1px d-none d-md-block" routerLink=".">Courses <span class="text-muted tx-12">{{user.courses.length}}</span></a>
             </li>
             <li class="header-link-item ml-3 pl-3 border-left d-flex align-items-center">
               <i class="mr-1 icon-md" data-feather="users" appFeatherIcon></i>
-              <a class="pt-1px d-none d-md-block" routerLink=".">Friends <span class="text-muted tx-12">3,765</span></a>
+              <a class="pt-1px d-none d-md-block" routerLink=".">Friends <span class="text-muted tx-12"></span></a>
             </li>
             <li class="header-link-item ml-3 pl-3 border-left d-flex align-items-center">
               <i class="mr-1 icon-md" data-feather="image" appFeatherIcon></i>
@@ -54,18 +54,6 @@
     <div class="d-none d-md-block col-md-4 col-xl-3 left-wrapper">
       <div class="card rounded">
         <div class="card-body">
-          <div class="mt-3">
-            <label class="tx-11 font-weight-bold mb-0 text-uppercase">My groups</label>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item" *ngFor="let group of user.groups">
-                <div class="d-flex justify-content-between">
-                  <a [routerLink]="['/groups/', group.groupId]" class="text-muted">
-                    {{group.title}}
-                  </a>
-                </div>
-              </li>
-            </ul>
-          </div>
           <div class="mt-3">
             <label class="tx-11 font-weight-bold mb-0 text-uppercase">Joined:</label>
             <p class="text-muted">{{user.joinDate | date:'longDate'}}</p>

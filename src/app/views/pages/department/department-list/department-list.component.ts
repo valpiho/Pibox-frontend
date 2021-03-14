@@ -18,41 +18,27 @@ export class DepartmentListComponent implements OnInit, OnDestroy {
   public departments: Department[];
   public group: Group;
 
-  private user: User;
   private groupId: string;
   private subscriptions: Subscription[] = [];
 
   constructor(private groupService: GroupService,
               private departmentService: DepartmentService,
-              private activatedRoute: ActivatedRoute,
-              private authenticationService: AuthenticationService) {
+              private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit(): void {
     this.groupId = this.activatedRoute.snapshot.paramMap.get('groupId');
-    console.log(this.groupId);
     this.subscriptions.push(
-      this.departmentService.getAllGroupDepartments(this.groupId).subscribe(
-        (response: Department[]) => {
-          this.departments = response;
-        },
-        (errorResponse: HttpErrorResponse) => {
-          errorResponse.error.message;
-        }
-      ),
       this.groupService.getGroup(this.groupId).subscribe(
         (response: Group) => {
           this.group = response;
+          this.departments = response.departments;
         },
         (errorResponse: HttpErrorResponse) => {
           errorResponse.error.message;
         }
       )
     )
-  }
-
-  isOwner(id: number) {
-    return this.user.id === id;
   }
 
   ngOnDestroy(): void {
