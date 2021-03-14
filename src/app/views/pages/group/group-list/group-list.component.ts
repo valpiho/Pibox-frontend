@@ -8,8 +8,7 @@ import {AuthenticationService} from "../../../../core/services/auth/authenticati
 
 @Component({
   selector: 'app-group-list',
-  templateUrl: './group-list.component.html',
-  styleUrls: ['./group-list.component.scss']
+  templateUrl: './group-list.component.html'
 })
 export class GroupListComponent implements OnInit, OnDestroy{
 
@@ -27,6 +26,7 @@ export class GroupListComponent implements OnInit, OnDestroy{
       this.groupService.getAllUserGroups(this.user).subscribe(
         (response: Group[]) => {
           this.groups = response;
+          console.log(response)
         },
         (errorResponse: HttpErrorResponse) => {
           errorResponse.error.message;

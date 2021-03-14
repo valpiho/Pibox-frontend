@@ -8,8 +8,7 @@ import {AuthenticationService} from "../../../../core/services/auth/authenticati
 
 @Component({
   selector: 'app-group-find',
-  templateUrl: './group-find.component.html',
-  styleUrls: ['./group-find.component.scss']
+  templateUrl: './group-find.component.html'
 })
 export class GroupFindComponent implements OnInit, OnDestroy {
 

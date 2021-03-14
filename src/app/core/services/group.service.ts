@@ -8,6 +8,7 @@ import {User} from "../../model/user";
 @Injectable({
   providedIn: 'root'
 })
+
 export class GroupService {
 
   public host = environment.apiUrl;

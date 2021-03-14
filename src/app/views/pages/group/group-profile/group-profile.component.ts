@@ -7,8 +7,7 @@ import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-group-profile',
-  templateUrl: './group-profile.component.html',
-  styleUrls: ['./group-profile.component.scss']
+  templateUrl: './group-profile.component.html'
 })
 export class GroupProfileComponent implements OnInit, OnDestroy {
 
@@ -18,14 +17,10 @@ export class GroupProfileComponent implements OnInit, OnDestroy {
 
   constructor(private groupService: GroupService,
               private activatedRoute: ActivatedRoute) {
-    this.subscriptions.push(
-      this.activatedRoute.params.subscribe(
-        params => this.groupId = params["groupId"]
-      )
-    )
   }
 
   ngOnInit(): void {
+    this.groupId = this.activatedRoute.snapshot.paramMap.get('groupId');
     this.subscriptions.push(
       this.groupService.getGroup(this.groupId).subscribe(
         (response: Group) => {

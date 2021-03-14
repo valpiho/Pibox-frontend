@@ -5,7 +5,7 @@
       <div class="card-body">
         <div class="card-title d-flex justify-content-between ">
           <a [routerLink]="['/groups/', group.groupId]" class="text-muted">
-            <h5>{{group?.title}}</h5>
+            <h5>{{group.title}}</h5>
           </a>
           <span *ngIf="isOwner(group.groupOwner)" class="badge badge-pill badge-primary">Owner</span>
         </div>
@@ -17,7 +17,9 @@
 
         </div>
         <div>
-          {{group.users.length}} <i class="feather icon-users"></i>
+          {{group.departments.length}} Department(s) |
+          {{group.courses.length}} Course(s) |
+          {{group.users.length}} User(s) |
         </div>
       </div>
 

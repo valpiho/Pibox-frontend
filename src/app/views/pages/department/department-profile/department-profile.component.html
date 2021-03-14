@@ -8,16 +8,24 @@
             <img src="https://via.placeholder.com/1148x272" class="img-fluid" alt="profile cover">
           </figure>
           <div class="cover-body d-flex justify-content-between align-items-center">
-            <div>
-              <img class="profile-pic" src="{{user.profileImgUrl}}" alt="profile">
-              <span class="profile-name">{{user.firstName}} {{user.lastName}}</span>
+            <div class="row">
+              <div>
+                <img class="profile-pic" src="" alt="profile">
+              </div>
+              <div>
+                <span class="profile-name">{{department?.title}}</span><br>
+                <span class="profile-name">{{group?.title}}</span>
+              </div>
             </div>
             <div class="d-none d-md-block">
               <button class="btn btn-primary btn-icon-text">
-                <i data-feather="edit" appFeatherIcon class="btn-icon-prepend"></i> New post
+                <i data-feather="edit-3" appFeatherIcon class="btn-icon-prepend"></i>New post
               </button>
               <button class="btn btn-primary btn-icon-text">
-                <i data-feather="edit" appFeatherIcon class="btn-icon-prepend"></i> Edit profile
+                <i data-feather="user-plus" appFeatherIcon class="btn-icon-prepend"></i>Invite user
+              </button>
+              <button class="btn btn-primary btn-icon-text">
+                <i data-feather="edit" appFeatherIcon class="btn-icon-prepend"></i>Edit department
               </button>
             </div>
           </div>
@@ -29,20 +37,12 @@
               <a class="pt-1px d-none d-md-block" routerLink=".">Timeline</a>
             </li>
             <li class="header-link-item ml-3 pl-3 border-left d-flex align-items-center">
-              <i class="mr-1 icon-md" data-feather="grid" appFeatherIcon></i>
-              <a class="pt-1px d-none d-md-block" routerLink=".">Groups</a>
-            </li>
-            <li class="header-link-item ml-3 pl-3 border-left d-flex align-items-center">
               <i class="mr-1 icon-md" data-feather="list" appFeatherIcon></i>
-              <a class="pt-1px d-none d-md-block" routerLink=".">Courses</a>
+              <a class="pt-1px d-none d-md-block" routerLink=".">Courses <span class="text-muted tx-12">{{department?.courses.length}}</span></a>
             </li>
             <li class="header-link-item ml-3 pl-3 border-left d-flex align-items-center">
               <i class="mr-1 icon-md" data-feather="users" appFeatherIcon></i>
-              <a class="pt-1px d-none d-md-block" routerLink=".">Friends <span class="text-muted tx-12">3,765</span></a>
-            </li>
-            <li class="header-link-item ml-3 pl-3 border-left d-flex align-items-center">
-              <i class="mr-1 icon-md" data-feather="image" appFeatherIcon></i>
-              <a class="pt-1px d-none d-md-block" routerLink=".">Photos</a>
+              <a class="pt-1px d-none d-md-block" routerLink=".">Users <span class="text-muted tx-12">{{department?.users.length}}</span></a>
             </li>
           </ul>
         </div>
@@ -55,24 +55,8 @@
       <div class="card rounded">
         <div class="card-body">
           <div class="mt-3">
-            <label class="tx-11 font-weight-bold mb-0 text-uppercase">My groups</label>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item" *ngFor="let group of user.groups">
-                <div class="d-flex justify-content-between">
-                  <a [routerLink]="['/groups/', group.groupId]" class="text-muted">
-                    {{group.title}}
-                  </a>
-                </div>
-              </li>
-            </ul>
-          </div>
-          <div class="mt-3">
-            <label class="tx-11 font-weight-bold mb-0 text-uppercase">Joined:</label>
-            <p class="text-muted">{{user.joinDate | date:'longDate'}}</p>
-          </div>
-          <div class="mt-3">
-            <label class="tx-11 font-weight-bold mb-0 text-uppercase">Email:</label>
-            <p class="text-muted">{{user.email}}</p>
+            <label class="tx-11 font-weight-bold mb-0 text-uppercase">Created:</label>
+            <p class="text-muted">{{department?.createdAt | date:'longDate'}}</p>
           </div>
           <div class="mt-3 d-flex social-links">
             <a href="javascript:;" class="btn d-flex align-items-center justify-content-center border mr-2 btn-icon p-0 github" ngbTooltip="github.com/nobleui">
@@ -97,9 +81,9 @@
             <div class="card-header">
               <div class="d-flex align-items-center justify-content-between">
                 <div class="d-flex align-items-center">
-                  <img class="img-xs rounded-circle" src="{{user.profileImgUrl}}" alt="">
+                  <img class="img-xs rounded-circle" src="" alt="">
                   <div class="ml-2">
-                    <p>{{user.firstName}} {{user.lastName}}</p>
+                    <p></p>
                     <p class="tx-11 text-muted">1 min ago</p>
                   </div>
                 </div>

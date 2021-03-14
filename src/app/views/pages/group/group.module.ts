@@ -22,16 +22,22 @@ const routes: Routes = [
       },
       {
         path: 'create',
-        component: GroupCreateComponent
+        component: GroupCreateComponent,
+        pathMatch: 'full'
       },
       {
         path: 'find',
-        component: GroupFindComponent
+        component: GroupFindComponent,
+        pathMatch: 'full'
       },
       {
         path: ':groupId',
         component: GroupProfileComponent,
         pathMatch: 'full'
+      },
+      {
+        path: ':groupId/departments',
+        loadChildren: () => import('../department/department.module').then(m => m.DepartmentModule),
       }
     ]
   }

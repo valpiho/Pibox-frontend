@@ -8,8 +8,7 @@ import {AuthenticationService} from "../../../../core/services/auth/authenticati
 
 @Component({
   selector: 'app-group-create',
-  templateUrl: './group-create.component.html',
-  styleUrls: ['./group-create.component.scss']
+  templateUrl: './group-create.component.html'
 })
 export class GroupCreateComponent implements OnInit, OnDestroy {
 

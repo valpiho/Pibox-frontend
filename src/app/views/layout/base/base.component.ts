@@ -3,8 +3,7 @@ import { Router, RouteConfigLoadStart, RouteConfigLoadEnd } from '@angular/route
 
 @Component({
   selector: 'app-base',
-  templateUrl: './base.component.html',
-  styleUrls: ['./base.component.scss']
+  templateUrl: './base.component.html'
 })
 export class BaseComponent implements OnInit {
 

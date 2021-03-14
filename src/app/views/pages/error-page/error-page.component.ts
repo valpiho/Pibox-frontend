@@ -4,8 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-error-page',
-  templateUrl: './error-page.component.html',
-  styleUrls: ['./error-page.component.scss']
+  templateUrl: './error-page.component.html'
 })
 export class ErrorPageComponent implements OnInit, OnDestroy {
 
@@ -20,7 +19,7 @@ export class ErrorPageComponent implements OnInit, OnDestroy {
     this.type = this.route.snapshot.paramMap.get('type');
     console.log('hii');
     console.log(this.type);
-    
+
     this.sub = this.route.data.subscribe( param => {
       if(param.type) {
         this.type = param.type;
