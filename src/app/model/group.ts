@@ -3,7 +3,6 @@ import {User} from "./user";
 export class Group {
   public groupId: string;
   public title: string;
-  public abbreviation: string;
   public description: string;
   public groupImgUrl: string;
   public createdAt: Date;
@@ -19,7 +18,6 @@ export class Group {
   constructor() {
     this.groupId = '';
     this.title = '';
-    this.abbreviation = '';
     this.description = '';
     this.groupImgUrl = '';
     this.createdAt = null;
