@@ -27,7 +27,7 @@ export class GroupService {
     return this.http.get<Group[]>(`${this.host}/groups/`)
   }
 
-  public getAllUserGroups(user: User): Observable<Group[]> {
-    return this.http.post<Group[]>(`${this.host}/groups/user-groups/`, user)
+  public getAllUserGroupsByUserId(userId: string): Observable<Group[]> {
+    return this.http.post<Group[]>(`${this.host}/groups/user-groups/`, userId)
   }
 }

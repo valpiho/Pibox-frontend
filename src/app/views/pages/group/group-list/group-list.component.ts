@@ -5,25 +5,41 @@ import {Subscription} from "rxjs";
 import {HttpErrorResponse, HttpResponse} from "@angular/common/http";
 import {User} from "../../../../model/user";
 import {AuthenticationService} from "../../../../core/services/auth/authentication.service";
+import {group} from "@angular/animations";
 
 @Component({
   selector: 'app-group-list',
   templateUrl: './group-list.component.html'
 })
-export class GroupListComponent implements OnInit{
+export class GroupListComponent implements OnInit, OnDestroy{
 
   public user: User;
   public groups: Group[];
+
+  private subscriptions: Subscription[] = [];
 
   constructor(private groupService: GroupService,
               private authenticationService: AuthenticationService) { }
 
   ngOnInit(): void {
     this.user = this.authenticationService.getUserFromLocalCache();
-    this.groups = this.user.groups;
+    this.subscriptions.push(
+      this.groupService.getAllUserGroupsByUserId(this.user.userId).subscribe(
+        (response: Group[]) => {
+          this.groups = response;
+        },
+        (errorResponse: HttpErrorResponse) => {
+          errorResponse.error.message;
+        }
+      )
+    )
   }
 
   isOwner(userId: string) {
     return this.user.userId === userId;
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.forEach(sub => sub.unsubscribe());
   }
 }

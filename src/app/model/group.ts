@@ -9,7 +9,7 @@ export class Group {
   public updatedAt: Date;
   public isPublic: boolean;
   public isActive: boolean;
-  public groupOwner: User;
+  public groupOwnerUserId: string;
   public departments: [];
   public courses: [];
   public users: [];
@@ -24,7 +24,7 @@ export class Group {
     this.updatedAt = null;
     this.isPublic = false;
     this.isActive = false;
-    this.groupOwner = null;
+    this.groupOwnerUserId = '';
     this.departments = [];
     this.courses = [];
     this.users = [];

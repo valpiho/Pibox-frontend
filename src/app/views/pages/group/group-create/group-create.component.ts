@@ -26,7 +26,7 @@ export class GroupCreateComponent implements OnInit, OnDestroy {
 
   onCreate(group: Group): void {
     this.showLoading = true;
-    group.groupOwner = this.authenticationService.getUserFromLocalCache();
+    group.groupOwnerUserId = this.authenticationService.getUserFromLocalCache().userId;
     this.subscriptions.push(
       this.groupService.createNewGroup(group).subscribe(
         (response: HttpResponse<Group>) => {

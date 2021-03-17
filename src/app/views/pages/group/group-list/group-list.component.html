@@ -57,7 +57,7 @@
             <a [routerLink]="['/groups/', group.groupId]" class="text-muted">
               <h5>{{group.title}}</h5>
             </a>
-            <span *ngIf="isOwner(group.groupOwner)" class="badge badge-pill badge-primary">Owner</span>
+            <span *ngIf="isOwner(group.groupOwnerUserId)" class="badge badge-pill badge-primary">Owner</span>
           </div>
           <p>{{group.description}}</p>
         </div>
