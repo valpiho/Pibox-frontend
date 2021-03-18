@@ -13,9 +13,11 @@
               <span class="profile-name">{{user.firstName}} {{user.lastName}}</span>
             </div>
             <div class="d-none d-md-block">
+              <a routerLink="./create">
               <button class="btn btn-primary btn-icon-text">
                 <i data-feather="edit" appFeatherIcon class="btn-icon-prepend"></i> New group
               </button>
+              </a>
             </div>
           </div>
         </div>
@@ -23,7 +25,7 @@
           <ul class="links d-flex align-items-center mt-3 mt-md-0">
             <li class="header-link-item d-flex align-items-center">
               <i class="mr-1 icon-md" data-feather="columns" appFeatherIcon></i>
-              <a class="pt-1px d-none d-md-block" routerLink="../general/profile">Timeline </a>
+              <a class="pt-1px d-none d-md-block" routerLink="/general/profile">Timeline </a>
             </li>
             <li class="header-link-item ml-3 pl-3 border-left d-flex align-items-center active">
               <i class="mr-1 icon-md" data-feather="grid" appFeatherIcon></i>
@@ -67,9 +69,9 @@
 
           </div>
           <div>
-            {{group.departments.length}} Department(s) |
-            {{group.courses.length}} Course(s) |
-            {{group.users.length}} User(s) |
+            {{group.departments.length}} Department(s)&nbsp;&nbsp;&nbsp;
+            {{group.courses.length}} Course(s)&nbsp;&nbsp;&nbsp;
+            {{group.users.length}} User(s)
           </div>
         </div>
 

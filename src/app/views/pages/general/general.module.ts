@@ -8,6 +8,7 @@ import { NgbAccordionModule, NgbDropdownModule, NgbTooltipModule } from '@ng-boo
 import { GeneralComponent } from './general.component';
 import { ProfileComponent } from './profile/profile.component';
 import { Routes, RouterModule } from '@angular/router';
+import {GroupListComponent} from "../group/group-list/group-list.component";
 
 const routes: Routes = [
   {
@@ -23,6 +24,10 @@ const routes: Routes = [
         path: 'profile',
         component: ProfileComponent
       },
+      {
+        path: 'profile/groups',
+        component: GroupListComponent
+      }
     ]
   }
 ]

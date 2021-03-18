@@ -34,7 +34,6 @@ export type apexChartOptions = {
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss'],
   preserveWhitespaces: true
 })
 export class DashboardComponent implements OnInit {
@@ -486,14 +485,14 @@ export class DashboardComponent implements OnInit {
       step: (state, circle) => {
         circle.path.setAttribute('stroke', state.color);
         circle.path.setAttribute('stroke-width', state.width);
-    
+
         var value = Math.round(circle.value() * 100);
         if (value === 0) {
           circle.setText('');
         } else {
           circle.setText(value + '%');
         }
-    
+
       }
     });
     progressbar1.text.style.fontFamily = "'Overpass', sans-serif;";
