@@ -61,7 +61,7 @@ export const MENU: MenuItem[] = [
   {
     label: 'My groups',
     icon: 'users',
-    link: '/groups'
+    link: '/general/profile/groups'
   },
   {
     label: 'Find group',

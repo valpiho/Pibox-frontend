@@ -35,7 +35,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     GeneralComponent,
-    ProfileComponent],
+    ProfileComponent,
+    GroupListComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),

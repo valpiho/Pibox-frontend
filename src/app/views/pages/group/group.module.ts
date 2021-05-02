@@ -16,7 +16,7 @@ const routes: Routes = [
     component: GroupComponent,
     children: [
       {
-        path: '',
+        path: 'profile/groups',
         component: GroupListComponent,
         pathMatch: 'full'
       },
