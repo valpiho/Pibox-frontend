@@ -15,7 +15,7 @@ export class GroupService {
   constructor(private http: HttpClient) {}
 
   public createNewGroup(group: Group): Observable<HttpResponse<Group>> {
-    return this.http.post<Group>(`${this.host}/groups/create`, group, {observe: "response"})
+    return this.http.post<Group>(`${this.host}/groups`, group, {observe: "response"})
   }
 
   public getGroup(groupId: string): Observable<Group> {

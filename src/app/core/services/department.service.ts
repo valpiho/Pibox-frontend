@@ -23,6 +23,6 @@ export class DepartmentService {
   }
 
   createNewDepartment(groupId: string, department: Department): Observable<HttpResponse<Department>> {
-    return this.http.post<Department>(`${this.host}/groups/${groupId}/departments/create`, department, {observe: "response"})
+    return this.http.post<Department>(`${this.host}/groups/${groupId}/departments`, department, {observe: "response"})
   }
 }
