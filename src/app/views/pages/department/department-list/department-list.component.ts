@@ -13,6 +13,7 @@ import {GroupService} from '../../../../core/services/group.service';
 })
 export class DepartmentListComponent implements OnInit, OnDestroy {
 
+  public departments: Department[];
   public group: Group;
 
   private groupId: string;
@@ -32,6 +33,11 @@ export class DepartmentListComponent implements OnInit, OnDestroy {
         },
         (errorResponse: HttpErrorResponse) => {
           errorResponse.error.message;
+        }
+      ),
+      this.departmentService.getGroupAllActiveDepartments(this.groupId).subscribe(
+        (response: Department[]) => {
+          this.departments = response;
         }
       )
     )

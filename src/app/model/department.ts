@@ -1,4 +1,4 @@
-import {Group} from "./group";
+import {Group} from './group';
 
 export class Department {
   public departmentId: string;
@@ -11,10 +11,6 @@ export class Department {
   public isPublic: boolean;
   public isActive: boolean;
   public group: Group;
-  public courses: [];
-  public users: [];
-  public posts: [];
-
 
   constructor() {
     this.departmentId = '';
@@ -27,8 +23,5 @@ export class Department {
     this.isPublic = false;
     this.isActive = false;
     this.group = null;
-    this.courses = [];
-    this.users = [];
-    this.posts = [];
   }
 }

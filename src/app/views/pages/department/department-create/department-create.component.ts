@@ -1,9 +1,10 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Subscription} from "rxjs";
-import {ActivatedRoute, Router} from "@angular/router";
-import {HttpErrorResponse, HttpResponse} from "@angular/common/http";
-import {Department} from "../../../../model/department";
-import {DepartmentService} from "../../../../core/services/department.service";
+import {Subscription} from 'rxjs';
+import {ActivatedRoute, Router} from '@angular/router';
+import {HttpErrorResponse, HttpResponse} from '@angular/common/http';
+import {Department} from '../../../../model/department';
+import {DepartmentService} from '../../../../core/services/department.service';
+import {DepartmentCreationDto} from "../../../../model/dto/department-creation-dto";
 
 @Component({
   selector: 'app-group-create',
@@ -25,7 +26,7 @@ export class DepartmentCreateComponent implements OnInit, OnDestroy {
     this.groupId = this.activatedRoute.snapshot.parent.paramMap.get('groupId');
   }
 
-  onCreate(department: Department): void {
+  onCreate(department: DepartmentCreationDto): void {
     this.showLoading = true;
     this.subscriptions.push(
       this.departmentService.createNewDepartment(this.groupId, department).subscribe(
