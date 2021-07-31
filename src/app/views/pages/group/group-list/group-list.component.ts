@@ -23,7 +23,7 @@ export class GroupListComponent implements OnInit, OnDestroy{
   ngOnInit(): void {
     this.user = this.authenticationService.getUserFromLocalCache();
     this.subscriptions.push(
-      this.groupService.getAllUserGroupsByUserId(this.user.id).subscribe(
+      this.groupService.getAllUserGroupsByUserId(this.user.userId).subscribe(
         (response: Group[]) => {
           this.groups = response;
         },
@@ -35,7 +35,7 @@ export class GroupListComponent implements OnInit, OnDestroy{
   }
 
   isOwner(userId: string) {
-    return this.user.id === userId;
+    return this.user.userId === userId;
   }
 
   ngOnDestroy(): void {

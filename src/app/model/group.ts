@@ -1,5 +1,3 @@
-import {User} from "./user";
-
 export class Group {
   public groupId: string;
   public title: string;
@@ -10,10 +8,6 @@ export class Group {
   public isPublic: boolean;
   public isActive: boolean;
   public groupOwnerUserId: string;
-  public departments: [];
-  public courses: [];
-  public users: [];
-  public posts: [];
 
   constructor() {
     this.groupId = '';
@@ -25,9 +19,5 @@ export class Group {
     this.isPublic = false;
     this.isActive = false;
     this.groupOwnerUserId = '';
-    this.departments = [];
-    this.courses = [];
-    this.users = [];
-    this.posts = [];
   }
 }

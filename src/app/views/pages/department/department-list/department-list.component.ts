@@ -1,13 +1,11 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Subscription} from "rxjs";
-import {HttpErrorResponse} from "@angular/common/http";
-import {User} from "../../../../model/user";
-import {AuthenticationService} from "../../../../core/services/auth/authentication.service";
-import {Department} from "../../../../model/department";
-import {DepartmentService} from "../../../../core/services/department.service";
-import {ActivatedRoute} from "@angular/router";
-import {Group} from "../../../../model/group";
-import {GroupService} from "../../../../core/services/group.service";
+import {Subscription} from 'rxjs';
+import {HttpErrorResponse} from '@angular/common/http';
+import {Department} from '../../../../model/department';
+import {DepartmentService} from '../../../../core/services/department.service';
+import {ActivatedRoute} from '@angular/router';
+import {Group} from '../../../../model/group';
+import {GroupService} from '../../../../core/services/group.service';
 
 @Component({
   selector: 'app-group-list',
@@ -15,7 +13,6 @@ import {GroupService} from "../../../../core/services/group.service";
 })
 export class DepartmentListComponent implements OnInit, OnDestroy {
 
-  public departments: Department[];
   public group: Group;
 
   private groupId: string;
@@ -32,7 +29,6 @@ export class DepartmentListComponent implements OnInit, OnDestroy {
       this.groupService.getGroup(this.groupId).subscribe(
         (response: Group) => {
           this.group = response;
-          this.departments = response.departments;
         },
         (errorResponse: HttpErrorResponse) => {
           errorResponse.error.message;

@@ -34,7 +34,7 @@ export class GroupFindComponent implements OnInit, OnDestroy {
   }
 
   isOwner(userId: string) {
-    return this.user.id === userId;
+    return this.user.userId === userId;
   }
 
   ngOnDestroy(): void {
