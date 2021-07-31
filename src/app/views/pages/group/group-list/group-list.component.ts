@@ -1,11 +1,10 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Group} from "../../../../model/group";
-import {GroupService} from "../../../../core/services/group.service";
-import {Subscription} from "rxjs";
-import {HttpErrorResponse, HttpResponse} from "@angular/common/http";
-import {User} from "../../../../model/user";
-import {AuthenticationService} from "../../../../core/services/auth/authentication.service";
-import {group} from "@angular/animations";
+import {Group} from '../../../../model/group';
+import {GroupService} from '../../../../core/services/group.service';
+import {Subscription} from 'rxjs';
+import {HttpErrorResponse} from '@angular/common/http';
+import {User} from '../../../../model/user';
+import {AuthenticationService} from '../../../../core/services/auth/authentication.service';
 
 @Component({
   selector: 'app-group-list',
@@ -24,7 +23,7 @@ export class GroupListComponent implements OnInit, OnDestroy{
   ngOnInit(): void {
     this.user = this.authenticationService.getUserFromLocalCache();
     this.subscriptions.push(
-      this.groupService.getAllUserGroupsByUserId(this.user.userId).subscribe(
+      this.groupService.getAllUserGroupsByUserId(this.user.id).subscribe(
         (response: Group[]) => {
           this.groups = response;
         },
@@ -36,7 +35,7 @@ export class GroupListComponent implements OnInit, OnDestroy{
   }
 
   isOwner(userId: string) {
-    return this.user.userId === userId;
+    return this.user.id === userId;
   }
 
   ngOnDestroy(): void {

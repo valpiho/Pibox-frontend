@@ -5,6 +5,7 @@ import {HttpErrorResponse, HttpResponse} from "@angular/common/http";
 import {User} from "../../../../model/user";
 import {HeaderType} from "../../../../core/enumeration/header-type.enum";
 import {Subscription} from "rxjs";
+import {UserLoginDto} from "../../../../model/dto/user-login-dto";
 
 @Component({
   selector: 'app-login',
@@ -25,7 +26,7 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  public onLogin(user: User): void {
+  public onLogin(user: UserLoginDto): void {
     this.showLoading = true;
     this.subscriptions.push(
       this.authenticationService.login(user).subscribe(

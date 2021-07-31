@@ -1,18 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import {Subscription} from "rxjs";
-import {NgForm} from "@angular/forms";
-import {UserService} from "../../../../core/services/user.service";
-import {Router} from "@angular/router";
-import {HttpErrorResponse} from "@angular/common/http";
-import {CustomHttpResponse} from "../../../../model/custom-http-response";
-import {AuthenticationService} from "../../../../core/services/auth/authentication.service";
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Subscription} from 'rxjs';
+import {NgForm} from '@angular/forms';
+import {Router} from '@angular/router';
+import {HttpErrorResponse} from '@angular/common/http';
+import {CustomHttpResponse} from '../../../../model/custom-http-response';
+import {AuthenticationService} from '../../../../core/services/auth/authentication.service';
 
 @Component({
   selector: 'app-restore-password',
   templateUrl: './reset-password.component.html',
   styleUrls: ['./reset-password.component.scss']
 })
-export class ResetPasswordComponent implements OnInit {
+export class ResetPasswordComponent implements OnInit, OnDestroy {
 
   public showLoading: boolean;
   private subscriptions: Subscription[] = [];
@@ -25,7 +24,7 @@ export class ResetPasswordComponent implements OnInit {
 
   onRestore(emailForm: NgForm): void {
     this.showLoading = true;
-    const emailAddress = emailForm.value['email'];
+    const emailAddress = emailForm.value.email;
     this.subscriptions.push(
       this.authenticationService.resetPassword(emailAddress).subscribe(
         (response: CustomHttpResponse) => {

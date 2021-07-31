@@ -1,10 +1,10 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Group} from "../../../../model/group";
-import {Subscription} from "rxjs";
-import {Router} from "@angular/router";
-import {GroupService} from "../../../../core/services/group.service";
-import {HttpErrorResponse, HttpResponse} from "@angular/common/http";
-import {AuthenticationService} from "../../../../core/services/auth/authentication.service";
+import {Group} from '../../../../model/group';
+import {Subscription} from 'rxjs';
+import {Router} from '@angular/router';
+import {GroupService} from '../../../../core/services/group.service';
+import {HttpErrorResponse, HttpResponse} from '@angular/common/http';
+import {AuthenticationService} from '../../../../core/services/auth/authentication.service';
 
 @Component({
   selector: 'app-group-create',
@@ -26,7 +26,7 @@ export class GroupCreateComponent implements OnInit, OnDestroy {
 
   onCreate(group: Group): void {
     this.showLoading = true;
-    group.groupOwnerUserId = this.authenticationService.getUserFromLocalCache().userId;
+    group.groupOwnerUserId = this.authenticationService.getUserFromLocalCache().id;
     this.subscriptions.push(
       this.groupService.createNewGroup(group).subscribe(
         (response: HttpResponse<Group>) => {

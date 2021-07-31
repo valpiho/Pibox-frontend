@@ -4,7 +4,9 @@ import { environment } from '../../../../environments/environment';
 import { Observable } from 'rxjs';
 import { User } from '../../../model/user';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import {CustomHttpResponse} from "../../../model/custom-http-response";
+import {CustomHttpResponse} from '../../../model/custom-http-response';
+import {UserRegistrationDto} from '../../../model/dto/user-registration-dto';
+import {UserLoginDto} from '../../../model/dto/user-login-dto';
 
 
 @Injectable({providedIn: 'root'})
@@ -16,12 +18,12 @@ export class AuthenticationService {
 
   constructor(private http: HttpClient) {}
 
-  public login(user: User): Observable<HttpResponse<User>> {
+  public login(user: UserLoginDto): Observable<HttpResponse<User>> {
     return this.http.post<User>(`${this.host}/user/login`, user, { observe: 'response' });
   }
 
-  public register(user: User): Observable<User> {
-    return this.http.post<User>(`${this.host}/user/register`, user);
+  public register(user: UserRegistrationDto): Observable<CustomHttpResponse> {
+    return this.http.post<CustomHttpResponse>(`${this.host}/user/register`, user);
   }
 
   public resetPassword(email: String): Observable<CustomHttpResponse> {
