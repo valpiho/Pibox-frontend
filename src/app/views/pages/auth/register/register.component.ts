@@ -1,16 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
-import {Subscription} from "rxjs";
-import {AuthenticationService} from "../../../../core/services/auth/authentication.service";
-import {HttpErrorResponse} from "@angular/common/http";
-import {User} from "../../../../model/user";
+import {Subscription} from 'rxjs';
+import {AuthenticationService} from '../../../../core/services/auth/authentication.service';
+import {HttpErrorResponse} from '@angular/common/http';
+import {User} from '../../../../model/user';
+import {UserRegistrationDto} from "../../../../model/dto/user-registration-dto";
+import {CustomHttpResponse} from "../../../../model/custom-http-response";
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent implements OnInit, OnDestroy {
 
   public showLoading: boolean;
 
@@ -25,11 +27,11 @@ export class RegisterComponent implements OnInit {
     }
   }
 
-  public onRegister(user: User): void {
+  public onRegister(user: UserRegistrationDto): void {
     this.showLoading = true;
     this.subscriptions.push(
       this.authenticationService.register(user).subscribe(
-        (response: User) => {
+        (response: CustomHttpResponse) => {
           this.showLoading = false;
           this.router.navigateByUrl('');
         },

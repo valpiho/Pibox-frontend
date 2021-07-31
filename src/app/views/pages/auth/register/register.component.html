@@ -13,22 +13,27 @@
             <h5 class="text-muted font-weight-normal mb-4">Create a free account.</h5>
             <form #registerForm="ngForm" class="forms-sample" (ngSubmit)="onRegister(registerForm.value)">
 
-              <div class="form-group">
-                <div class="d-flex justify-content-between">
-                  <label for="firstNameInput">First Name</label>
-                  <span style="color: red" *ngIf="firstNameInput.invalid && firstNameInput.touched">Please enter your first name</span>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <div class="d-flex justify-content-between">
+                      <label for="firstNameInput">First Name</label>
+                      <span style="color: red" *ngIf="firstNameInput.invalid && firstNameInput.touched">Please enter your first name</span>
+                    </div>
+                    <input type="text" class="form-control" id="firstNameInput" placeholder="First Name"
+                           name="firstName" required ngModel #firstNameInput="ngModel">
+                  </div>
                 </div>
-                <input type="text" class="form-control" id="firstNameInput" placeholder="First Name"
-                       name="firstName" required ngModel #firstNameInput="ngModel">
-              </div>
-
-              <div class="form-group">
-                <div class="d-flex justify-content-between">
-                  <label for="lastNameInput">Last Name</label>
-                  <span style="color: red" *ngIf="lastNameInput.invalid && lastNameInput.touched">Please enter your last name</span>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <div class="d-flex justify-content-between">
+                      <label for="lastNameInput">Last Name</label>
+                      <span style="color: red" *ngIf="lastNameInput.invalid && lastNameInput.touched">Please enter your last name</span>
+                    </div>
+                    <input type="text" class="form-control" id="lastNameInput" placeholder="Last name"
+                           name="lastName" required ngModel #lastNameInput="ngModel">
+                  </div>
                 </div>
-                <input type="text" class="form-control" id="lastNameInput" placeholder="Last name"
-                       name="lastName" required ngModel #lastNameInput="ngModel">
               </div>
 
               <div class="form-group">
@@ -42,15 +47,26 @@
 
               <div class="form-group">
                 <div class="d-flex justify-content-between">
+                  <label for="passwordInput">Password</label>
+                  <span style="color: red" *ngIf="passwordInput.invalid && passwordInput.touched">Please enter your password</span>
+                </div>
+                <input type="text" class="form-control" id="passwordInput" placeholder="Password"
+                       name="password" required ngModel #passwordInput="ngModel">
+              </div>
+
+              <div class="form-group">
+                <div class="d-flex justify-content-between">
                   <label for="emailInput">Email address</label>
-                  <span style="color: red" *ngIf="emailInput.invalid && emailInput.touched">Please enter your email</span>
+                  <span style="color: red"
+                        *ngIf="emailInput.invalid && emailInput.touched">Please enter your email</span>
                 </div>
                 <input type="email" class="form-control" id="emailInput" placeholder="Email"
                        name="email" required ngModel #emailInput="ngModel" email>
               </div>
 
-              <div class="mt-3" >
-                <button *ngIf="!showLoading" type="submit" class="btn btn-primary mr-2 mb-2 mb-md-0" [disabled]="registerForm.invalid">
+              <div class="mt-3">
+                <button *ngIf="!showLoading" type="submit" class="btn btn-primary mr-2 mb-2 mb-md-0"
+                        [disabled]="registerForm.invalid">
                   Sing up
                 </button>
                 <button *ngIf="showLoading" class="btn btn-primary mr-2 mb-2 mb-md-0" type="button" disabled>

@@ -1,10 +1,10 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Group} from "../../../../model/group";
-import {HttpErrorResponse} from "@angular/common/http";
-import {Subscription} from "rxjs";
-import {GroupService} from "../../../../core/services/group.service";
-import {User} from "../../../../model/user";
-import {AuthenticationService} from "../../../../core/services/auth/authentication.service";
+import {Group} from '../../../../model/group';
+import {HttpErrorResponse} from '@angular/common/http';
+import {Subscription} from 'rxjs';
+import {GroupService} from '../../../../core/services/group.service';
+import {User} from '../../../../model/user';
+import {AuthenticationService} from '../../../../core/services/auth/authentication.service';
 
 @Component({
   selector: 'app-group-find',

@@ -1,11 +1,10 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Group} from "../../../../model/group";
-import {GroupService} from "../../../../core/services/group.service";
-import {Subscription} from "rxjs";
-import {HttpErrorResponse, HttpResponse} from "@angular/common/http";
-import {User} from "../../../../model/user";
-import {AuthenticationService} from "../../../../core/services/auth/authentication.service";
-import {group} from "@angular/animations";
+import {Group} from '../../../../model/group';
+import {GroupService} from '../../../../core/services/group.service';
+import {Subscription} from 'rxjs';
+import {HttpErrorResponse} from '@angular/common/http';
+import {User} from '../../../../model/user';
+import {AuthenticationService} from '../../../../core/services/auth/authentication.service';
 
 @Component({
   selector: 'app-group-list',
